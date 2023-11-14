@@ -2,7 +2,7 @@ from formatacao import *
 from logins import*
 
 def menuInicial():
-    """Cumpre o requisito [RF001] Menu inicial:
+    """Cumpre o requisito [RF001] Menu inicial:\n
     O sistema deve conter as opções de 1. login gerente, 2. cadastro funcionário, 3. loginfuncionário.\n 
     PRIORIDADE: ( ) Essencial; ( ) Importante; (X) Desejável.
     """
@@ -11,7 +11,7 @@ def menuInicial():
     centralizado("(2)   Logar como Funcionário")
     centralizado("(3)   Cadastrar um Funcionário")
     centralizado("(4)   Sair do Arcevo Bibliotecário")
-    
+    print("\n" + "="*60 + "\n")
     opcao = input("Selecione uma opção:")
     
     # analisando o input
