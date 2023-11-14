@@ -1,5 +1,7 @@
+"""Módulo com as funções das telas de menu."""
+
 from formatacao import *
-from logins import*
+from logins import *
 
 def menuInicial():
     """Cumpre o requisito [RF001] Menu inicial:\n

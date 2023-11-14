@@ -1,4 +1,7 @@
+""" Módulo das funções necessárias para o login. """
+
 from formatacao import *
+from valida import *
 
 def cadastroFuncionario():
     """Cumpre o requisito [RF002] Cadastro Funcionário(a):\n
@@ -8,15 +11,20 @@ def cadastroFuncionario():
     
     nomeMenu("Cadastro de Funcionário")
     
-    nome = inputCentralizado(f"[{'Nome Completo:':^19}]")
-    email = inputCentralizado(f"[{'E-mail:':^19}]")
-    telefone = inputCentralizado(f"[{'Telefone:':^19}]")
-    cep = inputCentralizado(f"[{'Cidade e Estado:'}]")
-    nascimento = inputCentralizado(f"[{'Data de Nascimento:':^19}]")
-    senha = inputCentralizado(f"[{'Senha:':^19}]")
+    nome = inputCentralizado(f"{'[Nome Completo':<32}]: ")
     
-    if not verificaEmail(email):
-        print("ERRO: e-mail inválido")
+    email = inputCentralizado(f"{'[E-mail':<32}]:")
+    
+    if not validaEmail(email):
+        print("ERRO: e-mail inválido\nPor favor, insira um e-mail válido")
+        return cadastroFuncionario()
+    
+    telefone = inputCentralizado(f"{'[Telefone':<32}]: ")
+    cep = inputCentralizado(f"{'[Cidade e Estado':<32}]: ")
+    nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")
+    senha = inputCentralizado(f"{'[Senha':<32}]: ")
+        
+    
 
 
 def loginGerente():

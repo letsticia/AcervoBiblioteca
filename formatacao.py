@@ -1,3 +1,5 @@
+"""Módulo de formatação das strings. """
+
 def nomeMenu(menu):
     """Cria um cabeçalho.
 
@@ -25,9 +27,6 @@ def inputCentralizado(string):
     Returns:
         str : resultado do input
     """
-    dado = input(f"{' ':>10}{string}")
+    dado = input(f"{string}")
     
     return dado
-
-def verificaEmail(email):
-    return ('@' in email)
