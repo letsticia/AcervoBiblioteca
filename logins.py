@@ -17,8 +17,7 @@ def loginGerente():
     nomeMenu("Login do Gerente")
     
 def loginFuncionario():
-    """Cumpre o requisito [RF004] Login Funcionário(a):\n
-    O sistema deve possibilitar que o funcionário(a) realize login no sistema com suas credenciais de CPF e senha.\n
-    PRIORIDADE: ( ) Essencial; (X) Importante; ( ) Desejável.
-    """
-    nomeMenu("Login do Funcionário")
+    pass
+
+def cadastroFuncionario():
+    pass
