@@ -11,11 +11,8 @@ def menuInicial():
     centralizado("(2)   Logar como Funcionário")
     centralizado("(3)   Cadastrar um Funcionário")
     centralizado("(4)   Sair do Arcevo Bibliotecário")
-<<<<<<< HEAD
+
     print("\n" + "="*60 + "\n")
-=======
-     
->>>>>>> 5e0f316c4adc62617e0d9f9b2ba887c9e6793236
     opcao = input("Selecione uma opção:")
     
     # analisando o input
