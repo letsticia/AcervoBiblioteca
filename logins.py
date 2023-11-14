@@ -7,6 +7,13 @@ def cadastroFuncionario():
     """
     
     nomeMenu("Cadastro de Funcionário")
+    
+    nome = inputCentralizado(f"[{'Nome Completo:':^19}]")
+    email = inputCentralizado(f"[{'E-mail:':^19}]")
+    telefone = inputCentralizado(f"[{'Telefone:':^19}]")
+    cep = inputCentralizado(f"[{'Cidade e Estado:'}]")
+    nascimento = inputCentralizado(f"[{'Data de Nascimento:':^19}]")
+    senha = inputCentralizado(f"[{'Senha:':^19}]")
 
 def loginGerente():
     """Cumpre o requisito [RF003] Login gerente:\n
@@ -21,4 +28,5 @@ def loginFuncionario():
     O sistema deve possibilitar que o funcionário(a) realize login no sistema com suas credenciais de CPF e senha.\n
     PRIORIDADE: ( ) Essencial; (X) Importante; ( ) Desejável.
     """
-    pass
+    nomeMenu("Login do Funcionário")
+    
