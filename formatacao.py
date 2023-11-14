@@ -10,7 +10,7 @@ def nomeMenu(menu):
 
 def centralizado(string):
     """Formata o print
-
+ 
     Args:
         string (str): string a ser centralizada
     """
