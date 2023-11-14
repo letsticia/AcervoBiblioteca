@@ -28,3 +28,6 @@ def inputCentralizado(string):
     dado = input(f"{' ':>10}{string}")
     
     return dado
+
+def verificaEmail(email):
+    return ('@' in email)

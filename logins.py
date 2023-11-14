@@ -14,6 +14,10 @@ def cadastroFuncionario():
     cep = inputCentralizado(f"[{'Cidade e Estado:'}]")
     nascimento = inputCentralizado(f"[{'Data de Nascimento:':^19}]")
     senha = inputCentralizado(f"[{'Senha:':^19}]")
+    
+    if not verificaEmail(email):
+        print("ERRO: e-mail inválido")
+
 
 def loginGerente():
     """Cumpre o requisito [RF003] Login gerente:\n
