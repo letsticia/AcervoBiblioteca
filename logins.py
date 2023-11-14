@@ -3,6 +3,6 @@ def loginGerente():
 
 def loginFuncionario():
     pass
-
+ 
 def cadastroFuncionario():
     pass
