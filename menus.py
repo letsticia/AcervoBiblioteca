@@ -1,7 +1,6 @@
 """Módulo com as funções das telas de menu."""
 
 from formatacao import *
-from logins import *
 
 def menuInicial():
     """Cumpre o requisito [RF001] Menu inicial:\n
@@ -20,13 +19,16 @@ def menuInicial():
     # analisando o input
     if opcao == "1":
         print("Redirecionando para a tela de Login de Gerente...")
-        return loginGerente()
+        from logins import loginGerente
+        loginGerente()
     elif opcao == "2":
         print("Redirecionando para a tela de Login de Funcionário...")
-        return loginFuncionario()
+        from logins import loginFuncionario
+        loginFuncionario()
     elif opcao == "3":
         print("Redirecionando para a tela de Cadastro de Funcionário...")
-        return cadastroFuncionario()
+        from logins import cadastroFuncionario
+        cadastroFuncionario()
     elif opcao == "4":
         print("Redirecionando para a tela de Cadastro de Funcionário...")
         return False
