@@ -15,12 +15,20 @@ def cadastroFuncionario():
     
     email = inputCentralizado(f"{'[E-mail':<32}]:")
     
+    # validando o email
     if not validaEmail(email):
         print("ERRO: e-mail inválido\nPor favor, insira um e-mail válido")
         return cadastroFuncionario()
     
-    telefone = inputCentralizado(f"{'[Telefone':<32}]: ")
-    cep = inputCentralizado(f"{'[Cidade e Estado':<32}]: ")
+    telefone = inputCentralizado(f"{'[DDD + Telefone (somente números)':<32}]: ")
+    
+    # validando telefone
+    if not validaTelefone(telefone):
+        print("ERRO: digite um número de telefone válido")
+        return cadastroFuncionario()
+        
+    cidade = inputCentralizado(f"{'[Cidade':<32}]: ")
+    estado = inputCentralizado(f"{'[Estado':<32}]: ")
     nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")
     senha = inputCentralizado(f"{'[Senha':<32}]: ")
         

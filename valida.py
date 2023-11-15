@@ -24,4 +24,13 @@ def validaSenha(senha):
     return (len(senha) >= 8)
 
 def validaTelefone(telefone):
-    pass
+    """Valida o número de telefone.
+
+    Args:
+        telefone (str): conteúdo do input do usuário no campo telefone.
+    
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    
+    return ((len(telefone.replace(" ", "")) == 11) and ((telefone.replace(" ", "")).isnumeric())) 
