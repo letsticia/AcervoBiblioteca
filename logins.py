@@ -17,7 +17,6 @@ def cadastroFuncionario():
     nome = inputCentralizado(f"{'[Nome Completo':<32}]: ")
     
     if not validaObrigatoriedade(nome):
-        print("ERRO: Esse campo é obrigatório! Por favor, insira a informação necessária")
         return cadastroFuncionario()
     
     email = inputCentralizado(f"{'[E-mail':<32}]:")
@@ -35,13 +34,22 @@ def cadastroFuncionario():
         return cadastroFuncionario()
         
     cidade = inputCentralizado(f"{'[Cidade':<32}]: ")
+    
+    # validando a cidade
+    if not validaObrigatoriedade(cidade):
+        return cadastroFuncionario()
+    
     estado = inputCentralizado(f"{'[Estado':<32}]: ")
+    
+    # validando o estado
+    if not validaObrigatoriedade(estado):
+        return cadastroFuncionario()
     
     cpf = inputCentralizado(f"{'[CPF (somente números)':<32}]:")
     
     # validando o CPF
     if not validaCPF(cpf.replace(" ", "")):
-        print("ERRO: digite um número de CPFválido")
+        print("ERRO: digite um número de CPF válido")
         return cadastroFuncionario()
     
     nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")

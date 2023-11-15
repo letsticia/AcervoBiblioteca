@@ -9,7 +9,11 @@ def validaObrigatoriedade(campo):
     Returns:
         Bool: se válido, True, senão, False
     """
-    return (not (campo == ""))
+    if campo == "":
+        print("ERRO: Esse campo é obrigatório! Por favor, insira a informação necessária")
+        return False
+    else:
+        return True
     
 
 def validaEmail(email):
