@@ -1,7 +1,19 @@
 """Módulo com as funções para a validação do cadastro de funcionários."""
 
+def validaObrigatoriedade(campo):
+    """Valida se foi digitado alguma coisa em um campo obrigatório.
+
+    Args:
+        campo (str): campo a ser analisado
+
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    return (not (campo == ""))
+    
+
 def validaEmail(email):
-    """valida se o e-mail digitado é válido
+    """Valida se o e-mail digitado é válido
 
     Args:
         email (str): e-mail a ser validado
@@ -55,4 +67,4 @@ def validaNascimento(data):
         Bool: se válido, True, senão, False
     """
     ano = int(data[-4::])
-    return (ano >= 2005)
+    return ((ano >= 2005) and (len(data) >= 8))

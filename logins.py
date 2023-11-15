@@ -16,6 +16,10 @@ def cadastroFuncionario():
     
     nome = inputCentralizado(f"{'[Nome Completo':<32}]: ")
     
+    if not validaObrigatoriedade(nome):
+        print("ERRO: Esse campo é obrigatório! Por favor, insira a informação necessária")
+        return cadastroFuncionario()
+    
     email = inputCentralizado(f"{'[E-mail':<32}]:")
     
     # validando o email
