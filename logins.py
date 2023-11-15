@@ -56,7 +56,7 @@ def cadastroFuncionario():
     
     novoFuncionario = Funcionario(nome, email, telefone, cidade, estado, cpf, nascimento, senha)
      
-    tabelaFuncionarios.insert(novoFuncionario.__dict__)
+    tabelaSolicitacaoFuncionarios.insert(novoFuncionario.__dict__)
     
     print("Funcionário adicionado com sucesso! Voltando ao menu Inicial...")
     return menuInicial()
