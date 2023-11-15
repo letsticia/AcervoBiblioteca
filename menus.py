@@ -30,7 +30,7 @@ def menuInicial():
         from logins import cadastroFuncionario
         cadastroFuncionario()
     elif opcao == "4":
-        print("Redirecionando para a tela de Cadastro de Funcionário...")
+        print("Saindo do arcevo bibliotecário...")
         return False
     else:
         print("Por favor selecione uma opção válida")
