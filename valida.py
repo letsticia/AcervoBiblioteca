@@ -54,5 +54,5 @@ def validaNascimento(data):
     Returns:
         Bool: se válido, True, senão, False
     """
-    ano = int(data[::-4])
+    ano = int(data[-4::])
     return (ano >= 2005)
