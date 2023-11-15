@@ -1,6 +1,5 @@
 """Módulo com as funções para a validação do cadastro de funcionários."""
 
-
 def validaEmail(email):
     """valida se o e-mail digitado é válido
 
@@ -11,6 +10,17 @@ def validaEmail(email):
         Bool: se válido, True, senão, False
     """
     return (('@' in email) and (('.com' or '.org' or '.br') in email))
+
+def validaCPF(cpf):
+    """Valida o número do cpf
+
+    Args:
+        cpf (str): cpf digitado pelo usuário
+
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    return ((len(cpf) == 11) and (cpf.isnumeric())) 
 
 def validaSenha(senha):
     """Valida se a senha possui 8 caracteres ou mais
@@ -33,4 +43,16 @@ def validaTelefone(telefone):
         Bool: se válido, True, senão, False
     """
     
-    return ((len(telefone.replace(" ", "")) == 11) and ((telefone.replace(" ", "")).isnumeric())) 
+    return ((len(telefone) == 11) and (telefone.isnumeric())) 
+
+def validaNascimento(data):
+    """Valida a data de nascimento
+
+    Args:
+        data (str): data de nascimento inserida pelo usuário
+
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    ano = int(data[::-4])
+    return (ano >= 2005)

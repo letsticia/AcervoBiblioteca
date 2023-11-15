@@ -2,6 +2,7 @@
 
 from formatacao import *
 from valida import *
+from funcionario import Funcionario
 
 def cadastroFuncionario():
     """Cumpre o requisito [RF002] Cadastro Funcionário(a):\n
@@ -22,16 +23,36 @@ def cadastroFuncionario():
     
     telefone = inputCentralizado(f"{'[DDD + Telefone (somente números)':<32}]: ")
     
-    # validando telefone
-    if not validaTelefone(telefone):
+    # validando o telefone
+    if not validaTelefone(telefone.replace(" ", "")):
         print("ERRO: digite um número de telefone válido")
         return cadastroFuncionario()
         
     cidade = inputCentralizado(f"{'[Cidade':<32}]: ")
     estado = inputCentralizado(f"{'[Estado':<32}]: ")
+    
+    cpf = inputCentralizado(f"{'[CPF (somente números)':<32}]:")
+    
+    # validando o CPF
+    if not validaCPF(cpf.replace(" ", "")):
+        print("ERRO: digite um número de CPFválido")
+        return cadastroFuncionario()
+    
     nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")
-    senha = inputCentralizado(f"{'[Senha':<32}]: ")
-        
+    
+    # validando data de nascimento
+    if not validaNascimento(nascimento):
+        print("ERRO: insira uma data de nascimento válida")
+        return cadastroFuncionario()
+    
+    senha = inputCentralizado(f"{'[Senha (mínimo de 8 dígitos)':<32}]: ")
+    
+    # validando a senha
+    if not validaSenha(senha):
+        print("ERRO: digite uma senha válida (mínimo de 8 dígitos)")
+        return cadastroFuncionario()
+    
+    novoFuncionario = Funcionario(nome, email, telefone, cidade, estado, cpf, nascimento, senha) 
     
 
 
