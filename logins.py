@@ -3,6 +3,8 @@
 from formatacao import *
 from valida import *
 from funcionario import Funcionario
+from conector import *
+from menus import menuInicial
 
 def cadastroFuncionario():
     """Cumpre o requisito [RF002] Cadastro Funcionário(a):\n
@@ -52,9 +54,11 @@ def cadastroFuncionario():
         print("ERRO: digite uma senha válida (mínimo de 8 dígitos)")
         return cadastroFuncionario()
     
-    novoFuncionario = Funcionario(nome, email, telefone, cidade, estado, cpf, nascimento, senha) 
-    
-
+    novoFuncionario = Funcionario(nome, email, telefone, cidade, estado, cpf, nascimento, senha)
+     
+    db.insert(novoFuncionario.__dict__)
+    print("Funcionário adicionado com sucesso! Voltando ao menu Inicial...")
+    return menuInicial()
 
 def loginGerente():
     """Cumpre o requisito [RF003] Login gerente:\n
