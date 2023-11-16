@@ -30,3 +30,18 @@ def inputCentralizado(string):
     dado = input(f"{string}")
     
     return dado
+
+def substituiAcento(string):
+    """Substitui acentos por caracteres sem acentos
+
+    Args:
+        string (str): string a ser formatada
+
+    Returns:
+        str: string com os acentos substituidos
+    """
+    from unicodedata import normalize
+
+    result = normalize('NFKD', string).encode('ASCII','ignore').decode('ASCII')
+    
+    return result
