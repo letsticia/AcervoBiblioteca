@@ -19,14 +19,14 @@ def cadastroFuncionario():
     if not validaObrigatoriedade(nome):
         return cadastroFuncionario()
     
-    email = inputCentralizado(f"{'[E-mail':<32}]:")
+    email = inputCentralizado(f"{'[E-mail':<32}]: ")
     
     # validando o email
     if not validaEmail(email):
         print("ERRO: e-mail inválido\nPor favor, insira um e-mail válido")
         return cadastroFuncionario()
     
-    telefone = inputCentralizado(f"{'[DDD + Telefone (somente números)':<32}]: ")
+    telefone = inputCentralizado(f"{'[DDD + Telefone (apenas números)':<32}]: ")
     
     # validando o telefone
     if not validaTelefone(telefone.replace(" ", "")):
@@ -45,7 +45,7 @@ def cadastroFuncionario():
     if not validaObrigatoriedade(estado):
         return cadastroFuncionario()
     
-    cpf = inputCentralizado(f"{'[CPF (somente números)':<32}]:")
+    cpf = inputCentralizado(f"{'[CPF (somente números)':<32}]: ")
     
     # validando o CPF
     if not validaCPF(cpf.replace(" ", "")):
@@ -66,8 +66,10 @@ def cadastroFuncionario():
         print("ERRO: digite uma senha válida (mínimo de 8 dígitos)")
         return cadastroFuncionario()
     
+    # criando um objeto funcionário
     novoFuncionario = Funcionario(nome, email, telefone, cidade, estado, cpf, nascimento, senha)
-     
+    
+    # adicionando o funcionário ao banco de dados
     tabelaSolicitacaoFuncionarios.insert(novoFuncionario.__dict__)
     
     print("\nFuncionário adicionado com sucesso! Voltando ao menu Inicial...\n")
