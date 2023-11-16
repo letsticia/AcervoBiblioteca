@@ -70,7 +70,7 @@ def cadastroFuncionario():
      
     tabelaSolicitacaoFuncionarios.insert(novoFuncionario.__dict__)
     
-    print("Funcionário adicionado com sucesso! Voltando ao menu Inicial...")
+    print("\nFuncionário adicionado com sucesso! Voltando ao menu Inicial...\n")
     return menuInicial()
 
 def loginGerente():
