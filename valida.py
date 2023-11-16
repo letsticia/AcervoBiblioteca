@@ -15,7 +15,6 @@ def validaObrigatoriedade(campo):
     else:
         return True
     
-
 def validaEmail(email):
     """Valida se o e-mail digitado é válido
 
