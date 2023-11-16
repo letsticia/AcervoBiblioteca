@@ -1,2 +1,1 @@
-unicode==2.9
 tinydb==4.8
