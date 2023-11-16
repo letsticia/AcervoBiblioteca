@@ -23,14 +23,14 @@ def cadastroFuncionario():
     
     # validando o email
     if not validaEmail(email):
-        print("ERRO: e-mail inválido\nPor favor, insira um e-mail válido")
+        print("\nERRO: e-mail inválido\nPor favor, insira um e-mail válido\n")
         return cadastroFuncionario()
     
     telefone = inputCentralizado(f"{'[DDD + Telefone (apenas números)':<32}]: ")
     
     # validando o telefone
     if not validaTelefone(telefone.replace(" ", "")):
-        print("ERRO: digite um número de telefone válido")
+        print("\nERRO: digite um número de telefone válido\n")
         return cadastroFuncionario()
         
     cidade = inputCentralizado(f"{'[Cidade':<32}]: ")
@@ -49,21 +49,21 @@ def cadastroFuncionario():
     
     # validando o CPF
     if not validaCPF(cpf.replace(" ", "")):
-        print("ERRO: digite um número de CPF válido")
+        print("\nERRO: digite um número de CPF válido\n")
         return cadastroFuncionario()
     
     nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")
     
     # validando data de nascimento
     if not validaNascimento(nascimento):
-        print("ERRO: insira uma data de nascimento válida")
+        print("\nERRO: insira uma data de nascimento válida\n")
         return cadastroFuncionario()
     
     senha = inputCentralizado(f"{'[Senha (mínimo de 8 dígitos)':<32}]: ")
     
     # validando a senha
     if not validaSenha(senha):
-        print("ERRO: digite uma senha válida (mínimo de 8 dígitos)")
+        print("\nERRO: digite uma senha válida (mínimo de 8 dígitos)\n")
         return cadastroFuncionario()
     
     # criando um objeto funcionário
@@ -82,6 +82,16 @@ def loginGerente():
     """
 
     nomeMenu("Login do Gerente")
+    
+    email = inputCentralizado(f"{'[E-mail':<6}]: ")
+    senha = inputCentralizado(f"{'[Senha':<6}]: ")
+    
+    # comparando as informações do gerente com as informações digitadas
+    if (email == infoGerente['email']) and (senha == infoGerente['senha']):
+        pass
+    else:
+        print("ERRO: Informações inválidas, redirencionando para o menu\ninicial...")
+        return menuInicial()
     
 def loginFuncionario():
     """Cumpre o requisito [RF004] Login Funcionário(a):\n
