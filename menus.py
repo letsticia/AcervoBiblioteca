@@ -35,3 +35,30 @@ def menuInicial():
     else:
         print("\nPor favor selecione uma opção válida\n")
         return menuInicial()
+
+def menuFuncionario(gerente=bool):
+    """Cumpre o requisito [RF008] Menu funcionário:
+    Após a entrada do usuário no sistema ele terá um menu com as seguintes opções: cadastrar
+    usuário, cadastrar livro, buscar livro, empréstimos, remover livro, remover usuário, logout.
+    PRIORIDADE: (X) Essencial ( ) Importante; ( ) Desejável.
+    """
+    
+    nomeMenu("Menu Inicial")
+    
+    centralizado("(1)   Cadastrar usuário")
+    centralizado("(2)   Cadastrar livro")
+    centralizado("(3)   Buscar livro")
+    centralizado('(4)   Visualizar empréstimos')
+    centralizado("(5)   Remover livro")
+    centralizado("(6)   Remover usuário")
+    centralizado("(7)   Sair da conta")
+    
+    # opções que somente o gerente consegue acessar
+    if gerente:
+        centralizado("(8)   Aprovar Funcionário")
+        centralizado("(9)   Remover Funcionário")
+    
+    centralizado("(0)   Encerrar o programa")
+
+    print("\n" + "="*60 + "\n")
+    opcao = input("Selecione uma opção:")
