@@ -1,3 +1,5 @@
+"""Arquivo criador do objeto Funcionário."""
+
 from formatacao import substituiAcento
 
 class Funcionario:
