@@ -4,7 +4,7 @@ from formatacao import *
 from valida import *
 from funcionario import Funcionario
 from conector import *
-from menus import menuInicial
+from menus import *
 
 def cadastroFuncionario():
     """Cumpre o requisito [RF002] Cadastro Funcionário(a):\n
@@ -88,7 +88,7 @@ def loginGerente():
     
     # comparando as informações do gerente com as informações digitadas
     if (cpf == infoGerente['cpf']) and (senha == infoGerente['senha']):
-        pass
+        return menuFuncionario(gerente=True)
     else:
         print("ERRO: Informações inválidas, redirencionando para o menu\ninicial...")
         return menuInicial()
