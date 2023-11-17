@@ -1,3 +1,5 @@
+""" Arquivo que permite que os arquivos .json sejam conectados ao tinydb"""
+
 from tinydb import TinyDB
 
 # conectando o tinyDB ao banco de dados geral
