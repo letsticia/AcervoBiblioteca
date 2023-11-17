@@ -20,15 +20,15 @@ def menuInicial():
     if opcao == "1":
         print("\nRedirecionando para a tela de Login de Gerente...\n")
         from logins import loginGerente
-        loginGerente()
+        return loginGerente()
     elif opcao == "2":
         print("\nRedirecionando para a tela de Login de Funcionário...\n")
         from logins import loginFuncionario
-        loginFuncionario()
+        return loginFuncionario()
     elif opcao == "3":
         print("\nRedirecionando para a tela de Cadastro de Funcionário...\n")
         from logins import cadastroFuncionario
-        cadastroFuncionario()
+        return cadastroFuncionario()
     elif opcao == "4":
         print("\nSaindo do arcevo bibliotecário...\n")
         return False
@@ -62,3 +62,29 @@ def menuFuncionario(gerente=bool):
 
     print("\n" + "="*60 + "\n")
     opcao = input("Selecione uma opção:")
+    
+    # analisando o input
+    if opcao == "1":
+        pass
+    elif opcao == "2":
+        pass
+    elif opcao == "3":
+        pass
+    elif opcao == "4":
+        pass
+    elif opcao == "5":
+        pass
+    elif opcao == "6":
+        pass
+    elif opcao == "7":
+        pass
+    elif (opcao == "8") and (gerente == True):
+        pass
+    elif (opcao == "9") and (gerente == True):
+        pass
+    elif opcao == "0":
+        print("\nSaindo do arcevo bibliotecário...\n")
+        return False
+    else:
+        print("\nPor favor selecione uma opção válida\n")
+        return menuInicial()
