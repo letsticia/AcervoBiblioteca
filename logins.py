@@ -83,11 +83,11 @@ def loginGerente():
 
     nomeMenu("Login do Gerente")
     
-    email = inputCentralizado(f"{'[E-mail':<6}]: ")
-    senha = inputCentralizado(f"{'[Senha':<6}]: ")
+    cpf = inputCentralizado(f"{'[CPF':<5}]: ")
+    senha = inputCentralizado(f"{'[Senha':<5}]: ")
     
     # comparando as informações do gerente com as informações digitadas
-    if (email == infoGerente['email']) and (senha == infoGerente['senha']):
+    if (cpf == infoGerente['cpf']) and (senha == infoGerente['senha']):
         pass
     else:
         print("ERRO: Informações inválidas, redirencionando para o menu\ninicial...")
