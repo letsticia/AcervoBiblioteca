@@ -3,7 +3,7 @@
 from tinydb import TinyDB
 
 # conectando o tinyDB ao banco de dados geral
-db = TinyDB('db.json')
+db = TinyDB('funcionarios.json')
 
 # definindo a tabela de solicitação de funcionários
 tabelaSolicitacaoFuncionarios = db.table("SolicitacaoFuncionarios")
