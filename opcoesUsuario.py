@@ -79,6 +79,6 @@ def cadastraUsuario():
         return cadastraUsuario()
     
     # criando um objeto funcionário
-    novoFuncionario = Usuario(nome, email, idade, instituicao, telefone, cidade, estado, cpf, nascimento, senha)
+    novoUsuario = Usuario(nome, email, idade, instituicao, telefone, cidade, estado, cpf, nascimento, senha)
     
     
