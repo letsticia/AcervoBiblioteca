@@ -65,7 +65,10 @@ def menuFuncionario(gerente=bool):
     
     # analisando o input
     if opcao == "1":
-        pass
+        from opcoesUsuario import cadastraUsuario
+        print("\nRedirecionando para a tela de cadastro de usuário...\n")
+        return cadastraUsuario()
+        
     elif opcao == "2":
         pass
     elif opcao == "3":
