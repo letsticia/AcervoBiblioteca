@@ -11,6 +11,9 @@ tabelaSolicitacaoFuncionarios = db.table("SolicitacaoFuncionarios")
 # definindo a tabela de Funcionários
 tabelaFuncionarios = db.table("Funcionários")
 
+# definindo a tabela de funcionário conectado ao programa
+tabelaFuncionarioOnline = db.table("Online")
+
 # conectando o tinyDB ao banco de dados do gerente
 dbGerente = TinyDB('gerente.json')
 
