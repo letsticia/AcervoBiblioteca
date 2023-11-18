@@ -71,3 +71,15 @@ def validaNascimento(data):
     """
     ano = int(data[-4::])
     return ((ano >= 2005) and (len(data) >= 8))
+
+def validaIdade(idade):
+    """Valida a idade digitada.
+
+    Args:
+        idade (str): conteúdo do input do usuário no campo idade.
+    
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    
+    return (idade.isnumeric())
