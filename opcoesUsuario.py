@@ -1,6 +1,8 @@
 from formatacao import *
 from valida import *
 from usuario import Usuario
+from conector import *
+from menus import *
 
 def cadastraUsuario():
     """Cumpre o requisito [RF009] Cadastrar usuário:\n
@@ -81,4 +83,9 @@ def cadastraUsuario():
     # criando um objeto funcionário
     novoUsuario = Usuario(nome, email, idade, instituicao, telefone, cidade, estado, cpf, nascimento, senha)
     
+     # adicionando o funcionário ao banco de dados
+    tabelaUsuario.insert(novoUsuario.__dict__)
+    
+    print("\nUsuário adicionado com sucesso! Voltando ao menu principal...\n")
+    return menuFuncionario()
     
