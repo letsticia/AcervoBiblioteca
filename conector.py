@@ -22,3 +22,9 @@ tabelaGerente = dbGerente.table("gerente")
 
 # dicionário com o email e a senha do gerente
 infoGerente = tabelaGerente.all()[0]
+
+# conectando o tinydb ao banco de dados dos usuários
+dbUsuarios = TinyDB('usuarios.json')
+
+#definindo tabela Usuário
+tabelaUsuario = dbUsuarios.table('Usuários')
