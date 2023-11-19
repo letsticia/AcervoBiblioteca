@@ -83,3 +83,15 @@ def validaIdade(idade):
     """
     
     return (idade.isnumeric())
+
+def validaAno(ano):
+    """ Valida se, no campo de ano, fora digitado um número de 4 dígitos
+
+    Args:
+        ano (str): _description_
+
+    Returns:
+        Bool: se válido, True, senão, False
+    """
+    
+    return (len(ano) == 4) and (ano.isnumeric())
