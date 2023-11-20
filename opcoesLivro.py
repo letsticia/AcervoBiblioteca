@@ -1,6 +1,8 @@
 from menus import menuFuncionario
 from formatacao import *
 from valida import validaObrigatoriedade, validaAno
+from livro import Livro
+from conector import *
 
 def cadastraLivro():
     """ colocar o requisito correspondente"""
@@ -31,3 +33,12 @@ def cadastraLivro():
     if not validaAno(ano):
         print("ERRO: Digite um ano válido")
         return cadastraLivro()
+    
+    # obtendo o nome do funcionário que cadastrou
+    cadastro = infoFuncionarioOnline['nome']
+    
+    # criando o objeto livro
+    novoLivro = Livro(nome, autor, editora, ano, cadastro)
+    
+    # colocando o objeto no banco de dados
+    tabelaLivros.insert(novoLivro.__dict__)
