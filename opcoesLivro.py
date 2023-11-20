@@ -5,7 +5,10 @@ from livro import Livro
 from conector import *
 
 def cadastraLivro():
-    """ colocar o requisito correspondente"""
+    """Cumpre o requisito [RF010] Cadastrar Livro: \n
+    O sistema deve possibilitar que o funcionário(a) realize o cadastro de livros no sistema,
+    informando o id , nome, autor, editora, ano.\n
+    PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável."""
     
     nomeMenu("Cadastro de Livro")
     
