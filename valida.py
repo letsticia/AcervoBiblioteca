@@ -70,7 +70,7 @@ def validaNascimento(data):
         Bool: se válido, True, senão, False
     """
     ano = int(data[-4::])
-    return ((ano >= 2005) and (len(data) >= 8))
+    return ((ano <= 2005) and (len(data) >= 8))
 
 def validaIdade(idade):
     """Valida a idade digitada.
