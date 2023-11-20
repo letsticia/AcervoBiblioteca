@@ -31,3 +31,9 @@ dbUsuarios = TinyDB('usuarios.json')
 
 # definindo tabela Usuário
 tabelaUsuario = dbUsuarios.table('Usuarios')
+
+# conectando o tinydb ao banco de dados dos livros
+dbLivros = TinyDB('livros.json')
+
+# definindo uma tabela para os livros
+tabelaLivros = dbLivros.table('Livros')
