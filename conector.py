@@ -9,7 +9,7 @@ db = TinyDB('funcionarios.json')
 tabelaSolicitacaoFuncionarios = db.table("SolicitacaoFuncionarios")
 
 # definindo a tabela de Funcionários
-tabelaFuncionarios = db.table("Funcionários")
+tabelaFuncionarios = db.table("Funcionarios")
 
 # definindo a tabela de funcionário conectado ao programa
 tabelaFuncionarioOnline = db.table("Online")
@@ -27,4 +27,4 @@ infoGerente = tabelaGerente.all()[0]
 dbUsuarios = TinyDB('usuarios.json')
 
 #definindo tabela Usuário
-tabelaUsuario = dbUsuarios.table('Usuários')
+tabelaUsuario = dbUsuarios.table('Usuarios')
