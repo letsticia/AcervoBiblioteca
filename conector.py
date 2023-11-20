@@ -1,6 +1,6 @@
 """ Arquivo que permite que os arquivos .json sejam conectados ao tinydb"""
 
-from tinydb import TinyDB
+from tinydb import TinyDB, Query
 
 # conectando o tinyDB ao banco dos funcionários
 db = TinyDB('funcionarios.json')
