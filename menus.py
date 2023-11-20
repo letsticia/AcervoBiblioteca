@@ -1,8 +1,12 @@
 """Módulo com as funções das telas de menu."""
 
 from formatacao import *
+from conector import tabelaFuncionarioOnline
 
 def menuInicial():
+    # removendo o funcionário que estava online
+    tabelaFuncionarioOnline.truncate()
+    
     """Cumpre o requisito [RF001] Menu inicial:\n
     O sistema deve conter as opções de 1. login gerente, 2. cadastro funcionário, 3. loginfuncionário.\n 
     PRIORIDADE: ( ) Essencial; ( ) Importante; (X) Desejável.
@@ -70,9 +74,15 @@ def menuFuncionario(gerente=bool):
         return cadastraUsuario()
         
     elif opcao == "2":
-        pass
+        from opcoesLivro import cadastraLivro
+        print("\nRedirecionando para a tela de cadastro de livro...\n")
+        return cadastraLivro()
+    
     elif opcao == "3":
-        pass
+        from opcoesLivro import menuBuscaLivro
+        print("\nRedirecionando para a tela de busca de livros...\n")
+        return menuBuscaLivro()
+    
     elif opcao == "4":
         pass
     elif opcao == "5":
