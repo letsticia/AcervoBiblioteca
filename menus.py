@@ -90,4 +90,4 @@ def menuFuncionario(gerente=bool):
         return False
     else:
         print("\nPor favor selecione uma opção válida\n")
-        return menuInicial()
+        return menuFuncionario()
