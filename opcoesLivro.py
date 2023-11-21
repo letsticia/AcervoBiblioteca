@@ -84,7 +84,6 @@ def menuBuscaLivro():
 
         
     elif opcao == "2":
-        
         livroConsulta = Query()
         autor = input("Digite o nome do autor:")
         
@@ -93,17 +92,32 @@ def menuBuscaLivro():
         
         if resultado == []:
             print('Não foi encontrado nenhum livro com esse(a) autor(a)')
+            return menuBuscaLivro()
         else:
             for itens in resultado:
                 resultadoBusca(itens)
             return voltaMenu()
         
     elif opcao == "3":
-        pass
+        livroConsulta = Query()
+        data = input("Digite a data de lançamento:")
+        
+        # definindo o resultado da busca
+        resultado = (tabelaLivros.search(livroConsulta.data == data))
+        
+        if resultado == []:
+            print('Não foi encontrado nenhum livro com essa data de lancamento')
+            return menuBuscaLivro()
+        else:
+            for itens in resultado:
+                resultadoBusca(itens)
+            return voltaMenu()
+        
     elif opcao == "4":
         pass
     elif opcao == "5":
-        pass
+        print("Redirecionando para o menu do funcionário...")
+        return menuFuncionario()
     else:
         print("\nPor favor selecione uma opção válida\n")
         return menuBuscaLivro()
