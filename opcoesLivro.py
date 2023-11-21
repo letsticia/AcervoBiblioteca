@@ -114,7 +114,21 @@ def menuBuscaLivro():
             return voltaMenu()
         
     elif opcao == "4":
-        pass
+        
+        livroConsulta = Query()
+        editora = input("Digite o nome da editora:")
+        
+        # definindo o resultado da busca
+        resultado = (tabelaLivros.search(livroConsulta.editora == substituiAcento(editora.title())))
+        
+        if resultado == []:
+            print('Não foi encontrado nenhum livro pulicado por essa editora')
+            return menuBuscaLivro()
+        else:
+            for itens in resultado:
+                resultadoBusca(itens)
+            return voltaMenu()
+        
     elif opcao == "5":
         print("Redirecionando para o menu do funcionário...")
         return menuFuncionario()
