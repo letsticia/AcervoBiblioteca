@@ -80,9 +80,7 @@ def menuBuscaLivro():
             return menuBuscaLivro()
         else:
             resultadoBusca(resultado)
-            
-            volta = input('Pressine qualquer tela para voltar ao menu de busca')
-            return menuBuscaLivro()
+            return voltaMenu()
 
         
     elif opcao == "2":
@@ -98,9 +96,7 @@ def menuBuscaLivro():
         else:
             for itens in resultado:
                 resultadoBusca(itens)
-                
-            volta = input('Pressine qualquer tela para voltar ao menu de busca')
-            return menuBuscaLivro()
+            return voltaMenu()
         
     elif opcao == "3":
         pass
@@ -114,3 +110,7 @@ def menuBuscaLivro():
 
 def realizaEmprestimo(livro):
     pass
+
+def voltaMenu():
+    volta = input('Pressine qualquer tela para voltar ao menu do funcionário')
+    return menuFuncionario()
