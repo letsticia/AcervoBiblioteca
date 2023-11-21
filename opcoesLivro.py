@@ -37,6 +37,8 @@ def cadastraLivro():
         print("ERRO: Digite um ano válido")
         return cadastraLivro()
     
+    infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+    
     # obtendo o nome do funcionário que cadastrou
     cadastro = infoFuncionarioOnline['nome']
     
@@ -59,3 +61,46 @@ def menuBuscaLivro():
     centralizado("(3)   Procurar por data de lançamento")
     centralizado("(4)   Procurar por editora")
     centralizado("(5)   Voltar ao menu de Funcionários")
+    
+    print("\n" + "="*60 + "\n")
+    
+    opcao = input("Selecione uma opção:")
+    
+    if opcao == "1":
+        livroConsulta = Query()
+        nome = input("Digite o nome do autor:")
+        
+        # definindo o resultado da busca
+        resultado = (tabelaLivros.search(livroConsulta.nome == substituiAcento(nome.title())))[0]
+        
+        if resultado == []:
+            print('Não foi encontrado nenhum livro com esse nome')
+        else:
+            
+            resultadoBusca(resultado)
+            
+            emprestimo = input('Deseja realizar o empréstimo? [S/N]')
+            
+            return realizaEmprestimo(emprestimo)
+        
+    elif opcao == "2":
+        pass
+    
+    elif opcao == "3":
+        pass
+    elif opcao == "4":
+        pass
+    elif opcao == "5":
+        pass
+    else:
+        print("\nPor favor selecione uma opção válida\n")
+        return menuBuscaLivro()
+
+def realizaEmprestimo(emprestimo):
+    if emprestimo.title() == 'N':
+        return menuBuscaLivro()
+    elif emprestimo.title() == 'S':
+        pass
+    else: 
+        print("\nERRO: opção inválida retornando ao menu de busca...")
+        return menuBuscaLivro()
