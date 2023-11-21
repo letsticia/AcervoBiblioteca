@@ -68,6 +68,7 @@ def menuBuscaLivro():
     
     opcao = input("Selecione uma opção:")
     
+    # busca por nome do livro
     if opcao == "1":
         livroConsulta = Query()
         nome = input("Digite o nome do autor:")
@@ -82,7 +83,7 @@ def menuBuscaLivro():
             resultadoBusca(resultado)
             return voltaMenu()
 
-        
+    # busca por autor(a)    
     elif opcao == "2":
         livroConsulta = Query()
         autor = input("Digite o nome do autor:")
@@ -98,6 +99,7 @@ def menuBuscaLivro():
                 resultadoBusca(itens)
             return voltaMenu()
         
+    # busca por data de lançamento    
     elif opcao == "3":
         livroConsulta = Query()
         data = input("Digite a data de lançamento:")
@@ -113,6 +115,7 @@ def menuBuscaLivro():
                 resultadoBusca(itens)
             return voltaMenu()
         
+    # busca por editora    
     elif opcao == "4":
         
         livroConsulta = Query()
