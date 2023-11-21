@@ -45,3 +45,14 @@ def substituiAcento(string):
     result = normalize('NFKD', string).encode('ASCII','ignore').decode('ASCII')
     
     return result
+
+def resultadoBusca(resultado):
+    """Mostra o resultado da busca, feito para o menu de livros.
+
+    Args:
+        resultado (dict): objeto a ser mostrado"""
+        
+    for item in resultado:
+        nomeMenu('Resultado da busca')
+        centralizado(f"[{item:<17}]: {resultado[item]}")
+    print("\n" + "="*60 + "\n")
