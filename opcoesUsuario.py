@@ -65,6 +65,9 @@ def cadastraUsuario():
     if not validaCPF(cpf.replace(" ", "")):
         print("\nERRO: digite um número de CPF válido\n")
         return cadastraUsuario()
+    elif ((tabelaUsuario.search(Query().cpf == cpf.replace(" ", ""))) != []):
+        print("\nERRO: cpf já cadastrado")
+        return cadastraUsuario()
     
     nascimento = inputCentralizado(f"{'[Data de Nascimento (dd/mm/aaaa)':<32}]: ")
     
