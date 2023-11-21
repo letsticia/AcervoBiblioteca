@@ -139,9 +139,6 @@ def menuBuscaLivro():
         print("\nPor favor selecione uma opção válida\n")
         return menuBuscaLivro()
 
-def realizaEmprestimo(livro):
-    pass
-
 def voltaMenu():
     volta = input('Pressine qualquer tela para voltar ao menu do funcionário')
     return menuFuncionario()
