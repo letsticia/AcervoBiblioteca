@@ -52,7 +52,7 @@ def menuFuncionario(gerente=bool):
     centralizado("(1)   Cadastrar usuário")
     centralizado("(2)   Cadastrar livro")
     centralizado("(3)   Buscar livro")
-    centralizado('(4)   Visualizar empréstimos')
+    centralizado('(4)   Empréstimos')
     centralizado("(5)   Remover livro")
     centralizado("(6)   Remover usuário")
     centralizado("(7)   Sair da conta")
