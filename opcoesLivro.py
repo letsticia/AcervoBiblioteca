@@ -75,17 +75,31 @@ def menuBuscaLivro():
         
         if resultado == []:
             print('Não foi encontrado nenhum livro com esse nome')
+            return menuBuscaLivro()
         else:
-            
             resultadoBusca(resultado)
             
-            emprestimo = input('Deseja realizar o empréstimo? [S/N]')
-            
-            return realizaEmprestimo(emprestimo, resultado)
+            volta = input('Pressine qualquer tela para voltar ao menu de busca')
+            return menuBuscaLivro()
+
         
     elif opcao == "2":
-        pass
-    
+        
+        livroConsulta = Query()
+        autor = input("Digite o nome do autor:")
+        
+        # definindo o resultado da busca
+        resultado = (tabelaLivros.search(livroConsulta.autor == substituiAcento(autor.title())))
+        
+        if resultado == []:
+            print('Não foi encontrado nenhum livro com esse(a) autor(a)')
+        else:
+            for itens in resultado:
+                resultadoBusca(itens)
+                
+            volta = input('Pressine qualquer tela para voltar ao menu de busca')
+            return menuBuscaLivro()
+        
     elif opcao == "3":
         pass
     elif opcao == "4":
