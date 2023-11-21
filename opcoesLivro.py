@@ -110,11 +110,5 @@ def menuBuscaLivro():
         print("\nPor favor selecione uma opção válida\n")
         return menuBuscaLivro()
 
-def realizaEmprestimo(emprestimo, livro):
-    if emprestimo.title() == 'N':
-        return menuBuscaLivro()
-    elif emprestimo.title() == 'S':
-        pass
-    else: 
-        print("\nERRO: opção inválida retornando ao menu de busca...")
-        return menuBuscaLivro()
+def realizaEmprestimo(livro):
+    pass
