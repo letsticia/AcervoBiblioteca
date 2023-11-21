@@ -81,7 +81,7 @@ def menuBuscaLivro():
             
             emprestimo = input('Deseja realizar o empréstimo? [S/N]')
             
-            return realizaEmprestimo(emprestimo)
+            return realizaEmprestimo(emprestimo, resultado)
         
     elif opcao == "2":
         pass
@@ -96,7 +96,7 @@ def menuBuscaLivro():
         print("\nPor favor selecione uma opção válida\n")
         return menuBuscaLivro()
 
-def realizaEmprestimo(emprestimo):
+def realizaEmprestimo(emprestimo, livro):
     if emprestimo.title() == 'N':
         return menuBuscaLivro()
     elif emprestimo.title() == 'S':
