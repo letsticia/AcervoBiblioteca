@@ -111,7 +111,7 @@ def menuBuscaLivro():
         data = input("Digite a data de lançamento:")
         
         # definindo o resultado da busca
-        resultado = (tabelaLivros.search(livroConsulta.data == data))
+        resultado = (tabelaLivros.search(livroConsulta.ano == data))
         
         if resultado == []:
             print('Não foi encontrado nenhum livro com essa data de lancamento')
