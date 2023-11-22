@@ -86,6 +86,7 @@ def menuBuscaLivro():
             print('Não foi encontrado nenhum livro com esse nome')
             return menuBuscaLivro()
         else:
+            nomeMenu('Resultado da busca')
             resultadoBusca(resultado)
             return voltaMenu()
 
@@ -101,6 +102,7 @@ def menuBuscaLivro():
             print('Não foi encontrado nenhum livro com esse(a) autor(a)')
             return menuBuscaLivro()
         else:
+            nomeMenu('Resultado da busca')
             for itens in resultado:
                 resultadoBusca(itens)
             return voltaMenu()
@@ -117,6 +119,8 @@ def menuBuscaLivro():
             print('Não foi encontrado nenhum livro com essa data de lancamento')
             return menuBuscaLivro()
         else:
+            nomeMenu('Resultado da busca')
+            
             for itens in resultado:
                 resultadoBusca(itens)
             return voltaMenu()
@@ -134,6 +138,7 @@ def menuBuscaLivro():
             print('Não foi encontrado nenhum livro pulicado por essa editora')
             return menuBuscaLivro()
         else:
+            nomeMenu('Resultado da busca')
             for itens in resultado:
                 resultadoBusca(itens)
             return voltaMenu()
@@ -147,4 +152,8 @@ def menuBuscaLivro():
 
 def voltaMenu():
     volta = input('\nPressine qualquer tela para voltar ao menu do funcionário')
-    return menuFuncionario()
+    infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+    if (infoFuncionarioOnline['nome'] == 'Gerente'):
+        return menuFuncionario(True)
+    else:
+        return menuFuncionario(False)

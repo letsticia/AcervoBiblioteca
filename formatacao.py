@@ -52,8 +52,6 @@ def resultadoBusca(resultado):
     Args:
         resultado (dict): objeto a ser mostrado"""
     
-    nomeMenu('Resultado da busca')
-    
     for item in resultado:
         centralizado(f"[{item:<17}]: {resultado[item]}")
         
