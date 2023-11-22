@@ -42,7 +42,7 @@ def cadastraLivro():
     # obtendo o nome do funcionário que cadastrou
     cadastro = infoFuncionarioOnline['nome']
     
-    numID = len(tabelaLivros)
+    numID = tableaNumID.all()[0]["Id"]
     
     # criando o objeto livro
     novoLivro = Livro(nome, autor, editora, ano, cadastro, "Disponivel", numID)
@@ -51,6 +51,8 @@ def cadastraLivro():
     tabelaLivros.insert(novoLivro.__dict__)
     
     print("Livro cadastrado com sucesso!")
+    
+    tableaNumID.update({'ID': numID+1})
     
     return voltaMenu()
     
