@@ -34,3 +34,9 @@ dbLivros = TinyDB('livros.json')
 
 # definindo uma tabela para os livros
 tabelaLivros = dbLivros.table('Livros')
+
+# conectando o Tinydb ao banco de dados de ID's
+dbNumID = TinyDB("numID.json")
+
+# criando uma tabela para ID's de livros
+tableaNumID = dbNumID.table("NumID")
