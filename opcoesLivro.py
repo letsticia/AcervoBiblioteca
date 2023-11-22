@@ -42,7 +42,7 @@ def cadastraLivro():
     # obtendo o nome do funcionário que cadastrou
     cadastro = infoFuncionarioOnline['nome']
     
-    numID = tabelaNumID.all()[0]["Id"]
+    numID = tabelaNumID.all()[0]["ID"]
     
     # criando o objeto livro
     novoLivro = Livro(nome, autor, editora, ano, cadastro, "Disponivel", numID)

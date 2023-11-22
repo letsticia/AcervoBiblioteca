@@ -39,4 +39,4 @@ tabelaLivros = dbLivros.table('Livros')
 dbNumID = TinyDB("numID.json")
 
 # criando uma tabela para ID's de livros
-tabelaNumID = dbNumID.table("NumID")
+tabelaNumID = dbNumID.table("numID")
