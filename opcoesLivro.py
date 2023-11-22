@@ -50,6 +50,10 @@ def cadastraLivro():
     # colocando o objeto no banco de dados
     tabelaLivros.insert(novoLivro.__dict__)
     
+    print("Livro cadastrado com sucesso!")
+    
+    return voltaMenu()
+    
 def menuBuscaLivro():
     """Cumpre o requisito [RF011] Buscar livro \n
     O sistema deve possibilitar que o funcionário(a) busque o livro ou no caso filtre a busca do
@@ -140,5 +144,5 @@ def menuBuscaLivro():
         return menuBuscaLivro()
 
 def voltaMenu():
-    volta = input('Pressine qualquer tela para voltar ao menu do funcionário')
+    volta = input('\nPressine qualquer tela para voltar ao menu do funcionário')
     return menuFuncionario()
