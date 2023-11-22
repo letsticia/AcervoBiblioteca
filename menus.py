@@ -40,7 +40,7 @@ def menuInicial():
         print("\nPor favor selecione uma opção válida\n")
         return menuInicial()
 
-def menuFuncionario(gerente=bool):
+def menuFuncionario(gerente):
     """Cumpre o requisito [RF008] Menu funcionário:
     Após a entrada do usuário no sistema ele terá um menu com as seguintes opções: cadastrar
     usuário, cadastrar livro, buscar livro, empréstimos, remover livro, remover usuário, logout.
