@@ -1,5 +1,6 @@
 from formatacao import *
 from menus import *
+from conector import *
 
 def menuEmprestimos():
     
@@ -20,4 +21,27 @@ def menuEmprestimos():
     print("\n" + "="*60 + "\n")
     opcao = input("Selecione uma opção:")
     
+def realizaEmprestimo():
     
+    numID = inputCentralizado(f"[{'Id do livro':<16}]: ")
+    
+    # retorna um único dicionário dentro de uma lista
+    buscaLivro = tabelaLivros.search(Query().numID == numID)
+    
+    if buscaLivro == []:
+        print("\n ERRO: ID inválido, voltando ao menu de empréstimos...")
+        return menuEmprestimos()
+    
+    cpf = inputCentralizado(f"[{'CPF do usuário':<16}]: ")
+    senha = inputCentralizado(f"[{'Senha do usuário':<16}]: ")
+    
+    # retorna um único dicionário dentro de uma lista
+    buscaUsuario = tabelaUsuario.search(Query().cpf == cpf)
+    
+    if buscaUsuario == []:
+        print("\n ERRO: usuário não encontrado, voltando ao menu de empréstimos...")
+        return menuEmprestimos()
+    elif (buscaUsuario[0]['cpf'] == cpf) and (buscaUsuario[0]['senha'] == senha):
+        buscaLivro[0].update({'status': 'Emprestado'})
+        print("\n Empréstimo realizado com sucesso!")
+        return menuEmprestimos()
