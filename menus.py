@@ -90,7 +90,8 @@ def menuFuncionario(gerente):
     elif opcao == "6":
         pass
     elif opcao == "7":
-        pass
+        print("\nRedirecionando para o menu inicial ...\n")
+        return menuInicial()
     elif (opcao == "8") and (gerente == True):
         pass
     elif (opcao == "9") and (gerente == True):
