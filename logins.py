@@ -88,6 +88,7 @@ def loginGerente():
     
     # comparando as informações do gerente com as informações digitadas
     if (cpf == infoGerente['cpf']) and (senha == infoGerente['senha']):
+        tabelaFuncionarioOnline.insert({'nome': 'Gerente'})
         return menuFuncionario(gerente=True)
     else:
         print("ERRO: Informações inválidas, redirencionando para o menu\ninicial...")
