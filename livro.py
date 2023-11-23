@@ -3,7 +3,7 @@
 from formatacao import substituiAcento
 
 class Livro:
-    def __init__(self, nome, autor, editora, ano, cadastro, status, numID):
+    def __init__(self, nome, autor, editora, ano, cadastro, status, numID, entrega):
         self.nome = substituiAcento(nome.title())
         self.autor = substituiAcento(autor.title())
         self.editora = substituiAcento(editora.title())
@@ -11,3 +11,4 @@ class Livro:
         self.cadastro = cadastro
         self.status = status
         self.numID = numID
+        self.entrega = entrega
