@@ -47,10 +47,10 @@ def substituiAcento(string):
     return result
 
 def resultadoBusca(resultado):
-    """Mostra o resultado da busca, feito para o menu de livros.
+    """Mostra o resultado da busca
 
     Args:
-        resultado (dict): objeto a ser mostrado"""
+        resultado (list): lista com dicionários dentro"""
     
     for item in resultado:
         centralizado(f"[{item:<17}]: {resultado[item]}")
