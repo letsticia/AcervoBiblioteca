@@ -13,7 +13,7 @@ def menuEmprestimos():
     nomeMenu('Menu de empréstimos')
     
     centralizado("(1)   Realizar empréstimo")
-    centralizado("(2)   Visualizar empréstimos")
+    centralizado("(2)   Historico de empréstimos")
     centralizado("(3)   Status do empréstimo")
     centralizado("(4)   Renovar empréstimo")
     centralizado("(5)   Voltar ao menu do Funcionário")
@@ -64,6 +64,7 @@ def realizaEmprestimo():
         tabelaEmprestimos.insert({'nome': buscaUsuario['nome'],
                                   'cpf': buscaUsuario,
                                   'livro': buscaLivro['nome'],
+                                  'numID': buscaLivro['numID'],
                                   'realizado':dataHoje,
                                   'entrega': dataentrega})
         
@@ -74,8 +75,11 @@ def realizaEmprestimo():
         print("\n ERRO: senha incorreta, voltando ao menu de empréstimos...")
         return menuEmprestimos()
 
-def visualizaEmprestimo():
-    nomeMenu("Visualizar Empréstimos")
+def historicoEmprestimo():
+    nomeMenu("Histórico de Empréstimos")
     
-    buscaEmprestimo = tabelaLivros.search(Query().status == "Emprestado")
+    for itens in (tabelaEmprestimos.all()):
+        resultadoBusca(itens)
     
+    volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
+    return menuEmprestimos()
