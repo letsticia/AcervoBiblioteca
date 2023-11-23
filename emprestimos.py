@@ -45,3 +45,6 @@ def realizaEmprestimo():
         buscaLivro[0].update({'status': 'Emprestado'})
         print("\n Empréstimo realizado com sucesso!")
         return menuEmprestimos()
+    else:
+        print("\n ERRO: senha incorreta, voltando ao menu de empréstimos...")
+        return menuEmprestimos()
