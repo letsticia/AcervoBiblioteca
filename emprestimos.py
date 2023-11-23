@@ -4,7 +4,6 @@ from conector import *
 from datetime import *
 
 def menuEmprestimos():
-    
     """ Cumpre o requisito [RF012] Empréstimos:\n
     O sistema deve possibilitar que o funcionário(a) entre na aba de empréstimos que contém as
     seguintes opções: Realizar empréstimos, visualizar empréstimos, status do empréstimo,
@@ -23,6 +22,11 @@ def menuEmprestimos():
     opcao = input("Selecione uma opção:")
     
 def realizaEmprestimo():
+    """Cumpre o requisito [RF013] Realizar empréstimos:\n
+    O sistema deve possibilitar que o funcionário(a) realize um empréstimo de algum livro no
+    nome de um usuário, que deverão ser confirmados com o CPF e senha do usuário\n
+    PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável.
+    """
     nomeMenu("Realizar Empréstimo")
     
     numID = inputCentralizado(f"[{'Id do livro':<16}]: ")
@@ -56,7 +60,7 @@ def realizaEmprestimo():
         
         # atualizando os status do livro
         buscaLivro.update({'status': 'Emprestado'})
-        
+
         tabelaEmprestimos.insert({'nome': buscaUsuario['nome'],
                                   'cpf': buscaUsuario,
                                   'livro': buscaLivro['nome'],

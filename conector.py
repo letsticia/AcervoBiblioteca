@@ -44,4 +44,5 @@ tabelaNumID = dbNumID.table("numID")
 # conectando o tinydb ao banco de dados dos emprestimos
 dbEmprestimos = TinyDB('emprestimos.db')
 
+# criando uma tabela para os empréstimos
 tabelaEmprestimos = dbEmprestimos.table('emprestimos')
