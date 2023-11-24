@@ -94,7 +94,10 @@ def menuFuncionario(gerente):
         return menuBuscaLivro()
     
     elif opcao == "4":
-        pass
+        from emprestimos import menuEmprestimos
+        print("\n Redirecionando para o menu de Emprestimos...")
+        return menuEmprestimos()
+    
     elif opcao == "5":
         pass
     elif opcao == "6":
