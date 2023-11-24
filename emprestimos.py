@@ -66,7 +66,8 @@ def realizaEmprestimo():
                                   'livro': buscaLivro['nome'],
                                   'numID': buscaLivro['numID'],
                                   'realizado':dataHoje,
-                                  'entrega': dataentrega})
+                                  'entrega': dataentrega,
+                                  'status': 'ativo'})
         
         print("\n Empréstimo realizado com sucesso!")
         return menuEmprestimos()
@@ -83,3 +84,4 @@ def historicoEmprestimo():
     
     volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
     return menuEmprestimos()
+
