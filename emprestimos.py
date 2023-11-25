@@ -21,6 +21,30 @@ def menuEmprestimos():
     print("\n" + "="*60 + "\n")
     opcao = input("Selecione uma opção:")
     
+    # analisando o input
+    if opcao == "1":        
+        return realizaEmprestimo()
+
+    elif opcao == "2":
+        return historicoEmprestimo()
+    
+    elif opcao == "3":
+        return statusEmprestimo()
+    
+    elif opcao == "4":
+        return renovaEmprestimo()
+    
+    elif opcao == "5":
+        volta = input('\nPressine qualquer tela para voltar ao menu do funcionário')
+        infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+        if (infoFuncionarioOnline['nome'] == 'Gerente'):
+            return menuFuncionario(True)
+        else:
+            return menuFuncionario(False)
+    else:
+        print("\nPor favor selecione uma opção válida\n")
+        return menuInicial()
+    
 def realizaEmprestimo():
     """Cumpre o requisito [RF013] Realizar empréstimos:\n
     O sistema deve possibilitar que o funcionário(a) realize um empréstimo de algum livro no
@@ -142,7 +166,7 @@ def statusEmprestimo():
             
             buscaID.update({'status': 'devolvido'})
             buscaID.update({'entrega': dataHoje })
-            buscaLivro.update({'status: disponível'})
+            buscaLivro.update({'status: Disponível'})
             
             volta = input('\nDevolução confirmada com sucesso!\nPressione qualquer tecla para retornar ao menu de empréstimos.')
             return menuEmprestimos()
@@ -150,6 +174,10 @@ def statusEmprestimo():
         return menuEmprestimos()
     
 def renovaEmprestimo():
+    """Cumpre o requisito [RF016] Renovar empréstimo:\n
+    O sistema deve possibilitar que o funcionário(a) realize a renovação do empréstimo.\n
+    PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável.  
+    """
     
     numID = input("Digite o ID do livro a ser renovado:")
         
