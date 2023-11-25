@@ -114,4 +114,8 @@ def menuFuncionario(gerente):
         return False
     else:
         print("\nPor favor selecione uma opção válida\n")
-        return menuFuncionario()
+        infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+        if (infoFuncionarioOnline['nome'] == 'Gerente'):
+            return menuFuncionario(True)
+        else:
+            return menuFuncionario(False)

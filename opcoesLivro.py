@@ -145,7 +145,7 @@ def menuBuscaLivro():
         
     elif opcao == "5":
         print("Redirecionando para o menu do funcionário...")
-        return menuFuncionario()
+        return voltaMenu()
     else:
         print("\nPor favor selecione uma opção válida\n")
         return menuBuscaLivro()

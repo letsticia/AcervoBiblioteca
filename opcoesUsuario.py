@@ -90,5 +90,10 @@ def cadastraUsuario():
     tabelaUsuario.insert(novoUsuario.__dict__)
     
     print("\nUsuário adicionado com sucesso! Voltando ao menu principal...\n")
-    return menuFuncionario()
+    volta = input('\nUsuário adicionado com sucesso!\nPressine qualquer tela para voltar ao menu do funcionário')
+    infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+    if (infoFuncionarioOnline['nome'] == 'Gerente'):
+        return menuFuncionario(True)
+    else:
+        return menuFuncionario(False)
     
