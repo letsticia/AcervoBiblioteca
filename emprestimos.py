@@ -14,7 +14,7 @@ def menuEmprestimos():
     
     centralizado("(1)   Realizar empréstimo")
     centralizado("(2)   Historico de empréstimos")
-    centralizado("(3)   Status do empréstimo")
+    centralizado("(3)   Status dos empréstimos")
     centralizado("(4)   Renovar empréstimo")
     centralizado("(5)   Voltar ao menu do Funcionário")
     
@@ -56,7 +56,7 @@ def realizaEmprestimo():
         hoje = date.today()
         entrega = (hoje + timedelta(days=15))
         dataentrega = entrega.strftime("%d/%m/%Y")
-        dataHoje = dataHoje.strftime("%d/%m/%Y")
+        dataHoje = hoje.strftime("%d/%m/%Y")
         
         # atualizando os status do livro
         buscaLivro.update({'status': 'Emprestado'})
@@ -79,9 +79,72 @@ def realizaEmprestimo():
 def historicoEmprestimo():
     nomeMenu("Histórico de Empréstimos")
     
+    # os itens dentro da tabela de empréstimos são dicionários, o resultado da busca ira mostrá os itens dos dicionários
     for itens in (tabelaEmprestimos.all()):
         resultadoBusca(itens)
     
     volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
     return menuEmprestimos()
 
+def statusEmprestimo():
+    """Cumpre o requisito [RF015] Status empréstimo:\n
+    O sistema deve possibilitar que o funcionário(a) visualize o status do empréstimo para saber
+    se ele está ativo ou vencido, nisso ele terá também a opção de confirmar a devolução.\n
+    PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável.
+    """
+    
+    nomeMenu('Status dos Emprestimos')
+    
+    # Ambod retornam uma lista que contém os dicionários correspondente aos empréstimos
+    buscaEmprestimo = tabelaEmprestimos.search(Query().status == 'ativo')
+    buscaVencido = tabelaEmprestimos.search(Query().status == 'vencido')
+    
+    if buscaEmprestimo == [] and buscaVencido == []:
+        print('Não há empréstimos ativos ou vencidos')
+        
+        volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
+        return menuEmprestimos()
+    
+    if buscaEmprestimo != []:
+        nomeMenu('Empréstimos ativos')
+        
+        for itens in buscaEmprestimo:
+            resultadoBusca(itens)
+    
+    if buscaVencido != []:
+        nomeMenu('Empréstimos vencidos')
+        
+        for itens in buscaVencido:
+            resultadoBusca(itens)
+    
+    print("\n" + "="*60 + "\n")
+    
+    opcao = input("Deseja confirmar alguma devolução? [S/N]")
+    
+    if (opcao.title()) == 'S':
+        numID = input("Digite o ID do livro a ser devolvido:")
+        
+        # gerará um dicionário
+        buscaID = tabelaEmprestimos.search(Query().numID == numID)[0]
+        
+        if buscaID == []:
+            print("ID inválido ou não pertence a um empréstimo")
+            
+            volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
+            return menuEmprestimos()
+            
+        else:
+            hoje = date.today()
+            dataHoje = hoje.strftime("%d/%m/%Y")
+            
+            # gerará um dicionário
+            buscaLivro = tabelaLivros.search(Query().numID == numID)[0]
+            
+            buscaID.update({'status': 'devolvido'})
+            buscaID.update({'entrega': dataHoje })
+            buscaLivro.update({'status: disponível'})
+            
+            volta = input('\nDevolução confirmada com sucesso!\nPressione qualquer tecla para retornar ao menu de empréstimos.')
+            return menuEmprestimos()
+    else:
+        return menuEmprestimos()
