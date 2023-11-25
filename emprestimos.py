@@ -148,3 +148,29 @@ def statusEmprestimo():
             return menuEmprestimos()
     else:
         return menuEmprestimos()
+    
+def renovaEmprestimo():
+    
+    numID = input("Digite o ID do livro a ser renovado:")
+        
+    # gerará um dicionário
+    buscaID = tabelaEmprestimos.search(Query().numID == numID)[0]
+
+    if buscaID == []:
+        print("ID inválido ou não pertence a um empréstimo")
+        
+        volta = input('\nPressine qualquer tela para voltar ao menu de empréstimos')
+        return menuEmprestimos()
+        
+    else:
+        hoje = date.today()
+        dataHoje = hoje.strftime("%d/%m/%Y")
+        
+        entrega = (hoje + timedelta(days=15))
+        dataentrega = entrega.strftime("%d/%m/%Y")
+        
+        buscaID.update({'realizado': dataHoje})
+        buscaID.update({'entrega':  dataentrega })
+        
+        volta = input('\nRenovação concluida com sucesso!\nForam adicionados 15 dias.\nPressione qualquer tecla para retornar ao menu de empréstimos.')
+        return menuEmprestimos()
