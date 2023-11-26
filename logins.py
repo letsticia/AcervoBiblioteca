@@ -101,3 +101,30 @@ def loginFuncionario():
     """
     nomeMenu("Login do Funcionário")
     
+    cpf = inputCentralizado(f"[{'CPF':<5}]: ")
+    senha = inputCentralizado(f"[{'Senha':<5}]: ")
+    
+
+    
+    # analisando se está na tabela de solicitação
+    if (tabelaSolicitacaoFuncionarios.contains(Query().cpf == cpf)):
+        volta = input('\n Aguarde para que o gerente aprove sua solicitação.\nPressione qualquer tecla para voltar ao menu inicial.')
+        
+        return menuInicial()
+    # analisando se não está nem na tabela de solicitação e nem de funcionários ativos
+    elif (not (tabelaSolicitacaoFuncionarios.contains(Query().cpf == cpf))) and (not (tabelaFuncionarios.contains(Query().cpf == cpf))):
+        volta = input('\n Funcionário inexistente, faça o cadastro para\n obter uma solicitação e ser aprovado pelo gerente.\nPressione qualquer tecla para voltar ao menu inicial.')
+        return menuInicial()
+    
+    elif tabelaFuncionarios.contains(Query().cpf == cpf):
+        # obtendo as informações do usuário pelo cpf inserido
+        funcionario = tabelaFuncionarios.get(Query().cpf == cpf)
+        
+        if funcionario['senha'] == senha:
+            print("Redirecionando ao menu do funcionário...")
+            return menuFuncionario(False)
+        
+        else:
+            print("ERRO: senha incorreta, voltando ao menu inicial...")
+            return menuInicial()
+        
