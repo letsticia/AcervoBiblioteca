@@ -182,7 +182,7 @@ def renovaEmprestimo():
     numID = input("Digite o ID do livro a ser renovado:")
         
     # gerará um dicionário
-    buscaID = tabelaEmprestimos.search(Query().numID == numID)[0]
+    buscaID = tabelaEmprestimos.search(Query().numID == numID)
 
     if buscaID == []:
         print("ID inválido ou não pertence a um empréstimo")
@@ -197,8 +197,8 @@ def renovaEmprestimo():
         entrega = (hoje + timedelta(days=15))
         dataentrega = entrega.strftime("%d/%m/%Y")
         
-        buscaID.update({'realizado': dataHoje})
-        buscaID.update({'entrega':  dataentrega })
+        buscaID[0].update({'realizado': dataHoje})
+        buscaID[0].update({'entrega':  dataentrega })
         
         volta = input('\nRenovação concluida com sucesso!\nForam adicionados 15 dias.\nPressione qualquer tecla para retornar ao menu de empréstimos.')
         return menuEmprestimos()
