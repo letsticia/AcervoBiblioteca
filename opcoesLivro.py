@@ -80,14 +80,14 @@ def menuBuscaLivro():
         nome = input("Digite o nome do autor:")
         
         # definindo o resultado da busca
-        resultado = (tabelaLivros.search(livroConsulta.nome == substituiAcento(nome.title())))[0]
+        resultado = (tabelaLivros.search(livroConsulta.nome == substituiAcento(nome.title())))
         
         if resultado == []:
             print('Não foi encontrado nenhum livro com esse nome')
             return menuBuscaLivro()
         else:
             nomeMenu('Resultado da busca')
-            resultadoBusca(resultado)
+            resultadoBusca(resultado[0])
             return voltaMenu()
 
     # busca por autor(a)    

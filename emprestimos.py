@@ -149,7 +149,7 @@ def statusEmprestimo():
         numID = input("Digite o ID do livro a ser devolvido:")
         
         # gerará um dicionário
-        buscaID = tabelaEmprestimos.search(Query().numID == numID)[0]
+        buscaID = tabelaEmprestimos.search(Query().numID == numID)
         
         if buscaID == []:
             print("ID inválido ou não pertence a um empréstimo")
@@ -164,8 +164,8 @@ def statusEmprestimo():
             # gerará um dicionário
             buscaLivro = tabelaLivros.search(Query().numID == numID)[0]
             
-            buscaID.update({'status': 'devolvido'})
-            buscaID.update({'entrega': dataHoje })
+            buscaID[0].update({'status': 'devolvido'})
+            buscaID[0].update({'entrega': dataHoje })
             buscaLivro.update({'status: Disponível'})
             
             volta = input('\nDevolução confirmada com sucesso!\nPressione qualquer tecla para retornar ao menu de empréstimos.')
