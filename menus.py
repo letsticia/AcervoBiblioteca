@@ -112,6 +112,10 @@ def menuFuncionario(gerente):
         """ Cumpre o requisito [RF019] Logout Funcionário(a):\n
         O sistema deve possibilitar que o funcionário(a) realize logout do sistema\n
         PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável
+        
+        assim como cumpre o requisito [RF007] Logout gerente: \n
+        O sistema deve possibilitar que o gerente possa realizar logout.\n
+        PRIORIDADE: ( ) Essencial; ( ) Importante; (X) Desejável.
         """
         
         print("\nRedirecionando para o menu inicial ...\n")
@@ -119,7 +123,10 @@ def menuFuncionario(gerente):
         return menuInicial()
     
     elif (opcao == "8") and (gerente == True):
-        pass
+        from opcoesFuncionario import aprovaFuncionarios
+        print("\n Redirecionando para o menu de aprovação de funcionários...")
+        return aprovaFuncionarios()
+    
     elif (opcao == "9") and (gerente == True):
         pass
     elif opcao == "0":
