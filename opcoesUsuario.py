@@ -96,4 +96,27 @@ def cadastraUsuario():
         return menuFuncionario(True)
     else:
         return menuFuncionario(False)
+
+def removerUsuario():
+    nomeMenu("Remover usuário")
     
+    cpf = input("Digite o cpf do usuário a ser removido: ")
+    
+     # retorna um único dicionário dentro de uma lista
+    buscaUsuario = (tabelaUsuario.search(Query().cpf == cpf))
+    
+    if buscaUsuario == []:
+        volta = input('\nERRO: usuário não encontrado!\nPressine qualquer tela para voltar ao menu do funcionário')
+        infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+        if (infoFuncionarioOnline['nome'] == 'Gerente'):
+            return menuFuncionario(True)
+        else:
+            return menuFuncionario(False)
+    else:
+        tabelaUsuario.remove(Query().cpf == cpf)
+        volta = input('\nUsuário removido!\nPressine qualquer tela para voltar ao menu do funcionário')
+        infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+        if (infoFuncionarioOnline['nome'] == 'Gerente'):
+            return menuFuncionario(True)
+        else:
+            return menuFuncionario(False)
