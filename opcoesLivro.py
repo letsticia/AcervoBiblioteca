@@ -159,6 +159,11 @@ def voltaMenu():
         return menuFuncionario(False)
     
 def removerLivro():
+    """Cumpre o requisito[RF017] Remover livro:\n
+    O sistema deve possibilitar que o funcionário(a) realize a remoção do livro do catálogo,
+    informando a justificativa da remoção.\n
+    PRIORIDADE: ( ) Essencial; ( ) Importante; (X) Desejável.
+    """
     
     nomeMenu('Remover um Livro')
     

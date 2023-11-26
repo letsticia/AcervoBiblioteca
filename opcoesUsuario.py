@@ -101,7 +101,7 @@ def removerUsuario():
     """Cumpre o requisito [RF018] Remover usuário:\n
     O sistema deve possibilitar que o funcionário(a) remova o usuário do sistema caso o usuário
     queira remover seus dados do sistema.\n
-    PRIORIDADE: (X ) Essencial; ( ) Importante; ( ) Desejável.
+    PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável.
     """
     
     nomeMenu("Remover usuário")
