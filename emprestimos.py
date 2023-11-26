@@ -56,25 +56,26 @@ def realizaEmprestimo():
     numID = inputCentralizado(f"[{'Id do livro':<16}]: ")
     
     # retorna um único dicionário dentro de uma lista
-    buscaLivro = (tabelaLivros.search(Query().numID == numID))[0]
+    buscaLivro = (tabelaLivros.search(Query().numID == int(numID)))
     
     if buscaLivro == []:
         print("\nERRO: ID inválido, voltando ao menu de empréstimos...")
         return menuEmprestimos()
     elif buscaLivro['status'] != 'Disponivel':
         print("\nERRO: esse livro já fora emprestado")
+        return menuEmprestimos()
     
     cpf = inputCentralizado(f"[{'CPF do usuário':<16}]: ")
     senha = inputCentralizado(f"[{'Senha do usuário':<16}]: ")
     
     # retorna um único dicionário dentro de uma lista
-    buscaUsuario = (tabelaUsuario.search(Query().cpf == cpf))[0]
+    buscaUsuario = (tabelaUsuario.search(Query().cpf == cpf))
     
     if buscaUsuario == []:
         print("\n ERRO: usuário não encontrado, voltando ao menu de empréstimos...")
         return menuEmprestimos()
     
-    elif (buscaUsuario['cpf'] == cpf) and (buscaUsuario['senha'] == senha):
+    elif (buscaUsuario[0]['cpf'] == cpf) and (buscaUsuario[0]['senha'] == senha):
         
         # obtendo a data do dia da realização do emprestimo
         hoje = date.today()
@@ -83,7 +84,7 @@ def realizaEmprestimo():
         dataHoje = hoje.strftime("%d/%m/%Y")
         
         # atualizando os status do livro
-        buscaLivro.update({'status': 'Emprestado'})
+        buscaLivro[0].update({'status': 'Emprestado'})
 
         tabelaEmprestimos.insert({'nome': buscaUsuario['nome'],
                                   'cpf': buscaUsuario,
