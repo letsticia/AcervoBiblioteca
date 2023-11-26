@@ -84,7 +84,7 @@ def realizaEmprestimo():
         dataHoje = hoje.strftime("%d/%m/%Y")
         
         # atualizando os status do livro
-        buscaLivro[0].update({'status': 'Emprestado'})
+        tabelaLivros.update({'status': 'Emprestado'}, Query().numID == int(numID))
 
         tabelaEmprestimos.insert({'nome': buscaUsuario[0]['nome'],
                                   'cpf': buscaUsuario[0]['cpf'],
@@ -163,11 +163,11 @@ def statusEmprestimo():
             dataHoje = hoje.strftime("%d/%m/%Y")
             
             # gerará um dicionário
-            buscaLivro = tabelaLivros.search(Query().numID == numID)[0]
+            buscaLivro = tabelaLivros.search(Query().numID == int(numID))
             
-            buscaID[0].update({'status': 'devolvido'})
-            buscaID[0].update({'entrega': dataHoje })
-            buscaLivro.update({'status: Disponível'})
+            tabelaEmprestimos.update({'status': 'devolvido'}, Query().numID == int(numID))
+            tabelaEmprestimos.update({'entrega': dataHoje }, Query().numID == int(numID))
+            tabelaLivros.update({'status': 'Disponível'}, Query().numID == int(numID))
             
             volta = input('\nDevolução confirmada com sucesso!\nPressione qualquer tecla para retornar ao menu de empréstimos.')
             return menuEmprestimos()
@@ -198,8 +198,8 @@ def renovaEmprestimo():
         entrega = (hoje + timedelta(days=15))
         dataentrega = entrega.strftime("%d/%m/%Y")
         
-        buscaID[0].update({'realizado': dataHoje})
-        buscaID[0].update({'entrega':  dataentrega })
+        tabelaEmprestimos.update({'realizado': dataHoje}, Query().numID == int(numID))
+        tabelaEmprestimos.update({'entrega':  dataentrega }, Query().numID == int(numID))
         
         volta = input('\nRenovação concluida com sucesso!\nForam adicionados 15 dias.\nPressione qualquer tecla para retornar ao menu de empréstimos.')
         return menuEmprestimos()

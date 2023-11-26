@@ -1,7 +1,7 @@
 """Módulo com as funções das telas de menu."""
 
 from formatacao import *
-from conector import tabelaFuncionarioOnline, tabelaEmprestimos
+from conector import tabelaFuncionarioOnline, tabelaEmprestimos, Query
 from datetime import date 
 
 def menuInicial():
@@ -15,7 +15,7 @@ def menuInicial():
     # analisando se algum empréstimo está vencido
     for itens in tabelaEmprestimos:
         if itens['entrega'] < dataHoje:
-            itens.update({'status': 'vencido'})
+            tabelaEmprestimos.update({'status': 'vencido'}, Query().numID == itens['numID'])
     
     """Cumpre o requisito [RF001] Menu inicial:\n
     O sistema deve conter as opções de 1. login gerente, 2. cadastro funcionário, 3. loginfuncionário.\n 
