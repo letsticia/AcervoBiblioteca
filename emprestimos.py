@@ -61,7 +61,7 @@ def realizaEmprestimo():
     if buscaLivro == []:
         print("\nERRO: ID inválido, voltando ao menu de empréstimos...")
         return menuEmprestimos()
-    elif buscaLivro['status'] != 'Disponivel':
+    elif buscaLivro[0]['status'] != 'Disponivel':
         print("\nERRO: esse livro já fora emprestado")
         return menuEmprestimos()
     
@@ -86,10 +86,10 @@ def realizaEmprestimo():
         # atualizando os status do livro
         buscaLivro[0].update({'status': 'Emprestado'})
 
-        tabelaEmprestimos.insert({'nome': buscaUsuario['nome'],
+        tabelaEmprestimos.insert({'nome': buscaUsuario[0]['nome'],
                                   'cpf': buscaUsuario,
-                                  'livro': buscaLivro['nome'],
-                                  'numID': buscaLivro['numID'],
+                                  'livro': buscaLivro[0]['nome'],
+                                  'numID': buscaLivro[0]['numID'],
                                   'realizado':dataHoje,
                                   'entrega': dataentrega,
                                   'status': 'ativo'})
