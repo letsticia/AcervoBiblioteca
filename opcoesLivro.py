@@ -157,3 +157,28 @@ def voltaMenu():
         return menuFuncionario(True)
     else:
         return menuFuncionario(False)
+    
+def removerLivro():
+    
+    nomeMenu('Remover um Livro')
+    
+    numID = input("Digite o ID do livro a ser removido: ")
+        
+    # gerará um dicionário
+    buscaID = tabelaEmprestimos.search(Query().numID == int(numID))
+    
+    if buscaID == []:
+        print("ID inválido!")
+        
+        return voltaMenu()
+    else:
+        
+        justificativa = input("Digite a justificativa da remoção: ")
+        infoFuncionarioOnline = tabelaFuncionarioOnline.all()[0]
+        
+        status = f"Removido por {infoFuncionarioOnline['nome']}. Justificativa: {justificativa}"
+        
+        tabelaLivros.update({'status': status}, Query().numID == int(numID))
+        
+        print("O livro foi removido com sucesso e seu status foi atualizado.")
+        return voltaMenu()

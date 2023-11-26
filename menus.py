@@ -99,7 +99,10 @@ def menuFuncionario(gerente):
         return menuEmprestimos()
     
     elif opcao == "5":
-        pass
+        from opcoesLivro import removerLivro
+        print("\n Redirecionando para o menu de remoção de livros")
+        return removerLivro()
+    
     elif opcao == "6":
         pass
     elif opcao == "7":
