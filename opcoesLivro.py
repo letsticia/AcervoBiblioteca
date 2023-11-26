@@ -1,3 +1,5 @@
+"""Módulo em que as opções que envolvem livros são efetuadas."""
+
 from menus import menuFuncionario
 from formatacao import *
 from valida import validaObrigatoriedade, validaAno

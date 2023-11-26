@@ -1,3 +1,5 @@
+"""Módulo em que as opções que envolvem empréstimos são efetuadas."""
+
 from formatacao import *
 from menus import *
 from conector import *

@@ -1,3 +1,5 @@
+"""Módulo em que as opções que envolvem usuários são efetuadas."""
+
 from formatacao import *
 from valida import *
 from usuario import Usuario
