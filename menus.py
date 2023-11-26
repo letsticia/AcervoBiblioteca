@@ -128,7 +128,10 @@ def menuFuncionario(gerente):
         return aprovaFuncionarios()
     
     elif (opcao == "9") and (gerente == True):
-        pass
+        from opcoesFuncionario import removerFuncionario
+        print("\n Redirecionando para o menu de remoção de funcionários...")
+        return removerFuncionario()
+    
     elif opcao == "0":
         print("\nSaindo do arcevo bibliotecário...\n")
         return False
