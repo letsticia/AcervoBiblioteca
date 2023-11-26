@@ -87,7 +87,7 @@ def realizaEmprestimo():
         buscaLivro[0].update({'status': 'Emprestado'})
 
         tabelaEmprestimos.insert({'nome': buscaUsuario[0]['nome'],
-                                  'cpf': buscaUsuario,
+                                  'cpf': buscaUsuario[0]['cpf'],
                                   'livro': buscaLivro[0]['nome'],
                                   'numID': buscaLivro[0]['numID'],
                                   'realizado':dataHoje,
@@ -150,7 +150,7 @@ def statusEmprestimo():
         numID = input("Digite o ID do livro a ser devolvido:")
         
         # gerará um dicionário
-        buscaID = tabelaEmprestimos.search(Query().numID == numID)
+        buscaID = tabelaEmprestimos.search(Query().numID == int(numID))
         
         if buscaID == []:
             print("ID inválido ou não pertence a um empréstimo")
@@ -183,7 +183,7 @@ def renovaEmprestimo():
     numID = input("Digite o ID do livro a ser renovado:")
         
     # gerará um dicionário
-    buscaID = tabelaEmprestimos.search(Query().numID == numID)
+    buscaID = tabelaEmprestimos.search(Query().numID == int(numID))
 
     if buscaID == []:
         print("ID inválido ou não pertence a um empréstimo")

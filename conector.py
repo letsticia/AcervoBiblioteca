@@ -42,7 +42,7 @@ dbNumID = TinyDB("numID.json")
 tabelaNumID = dbNumID.table("numID")
 
 # conectando o tinydb ao banco de dados dos emprestimos
-dbEmprestimos = TinyDB('emprestimos.db')
+dbEmprestimos = TinyDB('emprestimos.json')
 
 # criando uma tabela para os empréstimos
 tabelaEmprestimos = dbEmprestimos.table('emprestimos')
