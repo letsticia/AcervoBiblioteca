@@ -109,8 +109,15 @@ def menuFuncionario(gerente):
         return removerUsuario()
         
     elif opcao == "7":
+        """ Cumpre o requisito [RF019] Logout Funcionário(a):\n
+        O sistema deve possibilitar que o funcionário(a) realize logout do sistema\n
+        PRIORIDADE: (X) Essencial; ( ) Importante; ( ) Desejável
+        """
+        
         print("\nRedirecionando para o menu inicial ...\n")
+        # no menu inicial, há uma opção de remover as informações do funcionário que está online, realizando, assim, o logout
         return menuInicial()
+    
     elif (opcao == "8") and (gerente == True):
         pass
     elif (opcao == "9") and (gerente == True):
