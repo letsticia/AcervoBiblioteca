@@ -28,7 +28,7 @@ def aprovaFuncionarios():
         tabelaFuncionarios.insert(tabelaSolicitacaoFuncionarios.get(doc_id=opcao))
         
         # removendo da tabela de solicitações de funcionários 
-        tabelaSolicitacaoFuncionarios.remove(tabelaSolicitacaoFuncionarios.get(doc_id=opcao))
+        tabelaSolicitacaoFuncionarios.remove(doc_ids=[int(opcao)])
         
         volta = input('\nFuncionário aprovado com sucesso! Pressione qualquer tecla para voltar ao menu do Funcionário')
         return menuFuncionario(True)
@@ -58,7 +58,7 @@ def removerFuncionario():
     opcao = input("Digite o ID do(a) funcionário(a) que desejas remover:")
     
     if (tabelaFuncionarios.contains(doc_id=opcao)):
-        tabelaFuncionarios.remove(tabelaFuncionarios.get(doc_id=opcao))
+        tabelaFuncionarios.remove(doc_ids=[int(opcao)])
         volta = input('\nFuncionário removido com sucesso! Pressione qualquer tecla para voltar ao menu do Funcionário')
         return menuFuncionario(True)
     else:
