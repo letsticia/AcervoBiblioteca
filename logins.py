@@ -122,6 +122,7 @@ def loginFuncionario():
         
         if funcionario['senha'] == senha:
             print("Redirecionando ao menu do funcionário...")
+            tabelaFuncionarioOnline.insert({'nome': funcionario['nome']})
             return menuFuncionario(False)
         
         else:
